@@ -20,31 +20,42 @@ public class School {
         this.name = name;
         this.departments = new ArrayList<>();
 
-        // TODO: Προσθέστε το αρχικό τμήμα στη λίστα departments
+        // Προσθέστε το αρχικό τμήμα στη λίστα departments
+        this.departments.add(initialDepartment);
     }
 
     // === Προσθήκη Τμήματος ===
     public void addDepartment(Department dept) {
-        // TODO: Προσθέστε το αντικείμενο dept στη λίστα departments
+        // Προσθέστε το αντικείμενο dept στη λίστα departments
+        this.departments.add(dept);
     }
 
     // === Πλήθος Τμημάτων ===
     public int getDepartmentCount() {
-        // TODO: Επιστρέψτε το μέγεθος της λίστας departments
-        return 0;
+        //  Επιστρέψτε το μέγεθος της λίστας departments
+        return departments.size();
     }
 
     // === Πλήθος Φοιτητών σε όλα τα Τμήματα ===
     public int getStudentCount() {
-        // TODO: Για κάθε Department, προσθέστε το πλήθος των φοιτητών
+        // Για κάθε Department, προσθέστε το πλήθος των φοιτητών
         // Χρησιμοποιήστε επανάληψη (π.χ. for-each)
-        return 0;
+        int studentCountTotal = 0;
+        for (Department department : departments) {
+            studentCountTotal =department.getStudentCount()+studentCountTotal;
+        }
+        return studentCountTotal;
     }
 
     // === Εκτύπωση πληροφοριών σχολής ===
     public void printDetails() {
-        // TODO: Εκτυπώστε το όνομα της σχολής και το πλήθος των τμημάτων
+        // Εκτυπώστε το όνομα της σχολής και το πλήθος των τμημάτων
         // Στη συνέχεια καλέστε printDetails() για κάθε Department
+        System.out.println("The school of" + this.name + " has the following Deps: \n");
+        for (Department department : departments) {
+            System.out.println(department.getName());
+        }
+
     }
 
     // === Getters ===
@@ -58,6 +69,7 @@ public class School {
 
     // === Setter ===
     public void setName(String name) {
-        // TODO: Ορίστε νέο όνομα για τη σχολή
+        // Ορίστε νέο όνομα για τη σχολή
+        this.name = name;
     }
 }
