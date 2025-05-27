@@ -21,13 +21,13 @@ public class UniversityBranch {
 
     // === Μέθοδος προσθήκης σχολής ===
     public void addSchool(School school) {
-        // TODO: Προσθέστε το αντικείμενο school στη λίστα schools
+        // Προσθέστε το αντικείμενο school στη λίστα schools
         // και ενημερώστε τα static counters ανάλογα (totalSchools, totalDepartments, totalStudents)
+        schools.add(school);
 
-        // π.χ. schools.add(...);
-        // totalSchools++;
-        // totalDepartments += ...
-        // totalStudents += ...
+        totalSchools++;
+         totalDepartments += school.getDepartments().size();
+         totalStudents += school.getStudentCount();
     }
 
     // === Getters ===
@@ -54,7 +54,7 @@ public class UniversityBranch {
 
     // === Εκτύπωση πληροφοριών παραρτήματος ===
     public void printDetails() {
-        // TODO: Εκτυπώστε τις πληροφορίες του παραρτήματος:
+        // Εκτυπώστε τις πληροφορίες του παραρτήματος:
         int schoolSize = schools.size();
        System.out.println(
                "Name: " + name

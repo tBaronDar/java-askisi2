@@ -11,47 +11,59 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
         // === Δημιουργία Παραρτήματος ΠΑΜΑΚ στην Κύπρο ===
-        // TODO: Χρησιμοποιήστε είτε new UniversityBranch(...) είτε getInstance(...) αν κάνατε Singleton
-        UniversityBranch pamakCyprus = null;
+        // Χρησιμοποιήστε είτε new UniversityBranch(...) είτε getInstance(...) αν κάνατε Singleton
+        UniversityBranch pamakCyprus = new UniversityBranch("Pamak of Cyprus", "Lemessos, Kiprion 15");
 
         // === Δημιουργία Τμημάτων για τη Σχολή Πληροφορικής ===
-        // TODO: Δημιουργήστε 2 τμήματα (π.χ. Πληροφορικής και Εφαρμοσμένης Πληροφορικής)
-        Department d1 = null;
-        Department d2 = null;
+        // Δημιουργήστε 2 τμήματα (π.χ. Πληροφορικής και Εφαρμοσμένης Πληροφορικής)
+        Department d1 = new Department("Efarmosmeni pliroforiki",1617);
+        Department d2 = new Department("Logistikis",9856);
+
 
         // === Δημιουργία φοιτητών για κάθε τμήμα ===
-        // TODO: Δημιουργήστε μερικούς φοιτητές για κάθε τμήμα
+        //  Δημιουργήστε μερικούς φοιτητές για κάθε τμήμα
         // Θυμηθείτε: περνάμε Ονοματεπώνυμο, Έτος, Κωδικό Τμήματος, Αύξοντα Αριθμό
         ArrayList<String> names = new ArrayList<>(Arrays.asList("Maria Papadopoulou", "Nikos Evagelou", "Thodoros Andreadis Sigelakis", "Pagona Oustabasidou", "Ifaistinas Papapolihroniadis","Pinelopi Delta", "Konstantinos Kavafis"));
         ArrayList<Student> students = new ArrayList<>();
+
+        Student st = null;
         for (int i = 0; i < 29; i++) {
             int randomNameIndex = (int) (Math.random() * names.size());
             int randomYear = ThreadLocalRandom.current().nextInt(2000, 2026);
-        Student s =new Student(names.get(randomNameIndex), randomYear,200,i);
+            int randomDepartmentIndex = (int) (Math.random() * names.size());
+            int result = ThreadLocalRandom.current().nextBoolean() ? 9856 : 1617;
+         st =new Student(names.get(randomNameIndex), randomYear,200,i);
         }
 
 
-        // TODO: Προσθέστε τους φοιτητές στα αντίστοιχα Τμήματα
+        // Προσθέστε τους φοιτητές στα αντίστοιχα Τμήματα
         // π.χ. d1.addStudent(...)
 
+        if ( st.getDepartmentCode()== d1.getCode()){
+            d1.addStudent(st);
+        }else {
+            d2.addStudent(st);
+        }
+
         // === Δημιουργία Σχολής και προσθήκη Τμημάτων ===
-        // TODO: Η πρώτη σχολή δημιουργείται με 1 τμήμα, τα υπόλοιπα προστίθενται με addDepartment()
-        School informaticsSchool = null;
+        //  Η πρώτη σχολή δημιουργείται με 1 τμήμα, τα υπόλοιπα προστίθενται με addDepartment()
+        School informaticsSchool = new School("Informatics School",d1);
 
         // === Δημιουργία δεύτερης Σχολής με 1 τμήμα χωρίς φοιτητές ===
-        Department d3 = null;
-        School economicsSchool = null;
+        Department d3 = new Department("Management",1347);
+        School economicsSchool = new School("Economics School",d3);
 
         // === Προσθήκη Σχολών στο Παράρτημα ===
-        // TODO: Χρησιμοποιήστε pamakCyprus.addSchool(...) για κάθε σχολή
-
+        // Χρησιμοποιήστε pamakCyprus.addSchool(...) για κάθε σχολή
+            pamakCyprus.addSchool(economicsSchool);
+            pamakCyprus.addSchool(informaticsSchool);
         // === Εκτύπωση συνολικών στοιχείων ===
         System.out.println("\n--- ΠΑΜΑΚ Κύπρου ---");
         pamakCyprus.printDetails();
 
-        // TODO: Εκτυπώστε ξεχωριστά τα στοιχεία κάθε σχολής
+        //  Εκτυπώστε ξεχωριστά τα στοιχεία κάθε σχολής
         for (School s : pamakCyprus.getSchools()) {
-            System.out.println();
+            System.out.println("Ta stoiheia ton sholon einai: ");
             s.printDetails();
         }
 
