@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
+
 /*
  * Φροντίστε να κατασκευάζετε αντικείμενα από κάτω προς τα πάνω:
  *      Πρώτα φοιτητές → μετά τμήματα → μετά σχολές → μετά το παράρτημα
@@ -18,8 +22,14 @@ public class Main {
         // === Δημιουργία φοιτητών για κάθε τμήμα ===
         // TODO: Δημιουργήστε μερικούς φοιτητές για κάθε τμήμα
         // Θυμηθείτε: περνάμε Ονοματεπώνυμο, Έτος, Κωδικό Τμήματος, Αύξοντα Αριθμό
-        Student s1 = null;
-        Student s2 = null;
+        ArrayList<String> names = new ArrayList<>(Arrays.asList("Maria Papadopoulou", "Nikos Evagelou", "Thodoros Andreadis Sigelakis", "Pagona Oustabasidou", "Ifaistinas Papapolihroniadis","Pinelopi Delta", "Konstantinos Kavafis"));
+        ArrayList<Student> students = new ArrayList<>();
+        for (int i = 0; i < 29; i++) {
+            int randomNameIndex = (int) (Math.random() * names.size());
+            int randomYear = ThreadLocalRandom.current().nextInt(2000, 2026);
+        Student s =new Student(names.get(randomNameIndex), randomYear,200,i);
+        }
+
 
         // TODO: Προσθέστε τους φοιτητές στα αντίστοιχα Τμήματα
         // π.χ. d1.addStudent(...)

@@ -32,13 +32,11 @@ public class UniversityBranch {
 
     // === Getters ===
     public String getName() {
-        // TODO: Επιστρέψτε το όνομα του παραρτήματος
-        return null;
+        return name;
     }
 
     public String getAddress() {
-        // TODO: Επιστρέψτε τη διεύθυνση του παραρτήματος
-        return null;
+        return address;
     }
 
     public ArrayList<School> getSchools() {
@@ -47,18 +45,21 @@ public class UniversityBranch {
 
     // === Setters ===
     public void setName(String name) {
-        // TODO: Αποθηκεύστε το νέο όνομα
+        this.name = name;
     }
 
     public void setAddress(String address) {
-        // TODO: Αποθηκεύστε τη νέα διεύθυνση
+        this.address = address;
     }
 
     // === Εκτύπωση πληροφοριών παραρτήματος ===
     public void printDetails() {
         // TODO: Εκτυπώστε τις πληροφορίες του παραρτήματος:
-        // Όνομα, διεύθυνση, πλήθος σχολών, τμημάτων και φοιτητών
-        // Χρήση System.out.println(...)
+        int schoolSize = schools.size();
+       System.out.println(
+               "Name: " + name
+       + "\nAddress: " + address
+       + "\nSchools: " + schoolSize);
     }
 
     // === Στατικές μέθοδοι πρόσβασης σε counters ===
