@@ -21,24 +21,27 @@ public class Student {
         this.departmentCode = departmentCode;
         this.serialNumber = serialNumber;
 
-        // TODO: Καλέστε τη μέθοδο generateStudentId() για να δημιουργήσετε το ΑΜ
+        // Καλέστε τη μέθοδο generateStudentId() για να δημιουργήσετε το ΑΜ
         // και αποθηκεύστε το στο πεδίο studentId
+        this.studentId = generateStudentId();
     }
 
     // === Δημιουργία Αριθμού Μητρώου ===
     private String generateStudentId() {
-        // TODO: Επιστρέψτε μια συμβολοσειρά που αποτελείται από:
+        // Επιστρέψτε μια συμβολοσειρά που αποτελείται από:
         // τον κωδικό του τμήματος, το έτος εισαγωγής, και τον σειριακό αριθμό
         // με μορφή: "DEPT-YEAR-XXXXX", π.χ. "1115-2023-00042"
+        String result = String.format("%04d-%04d-%05d", getDepartmentCode(), getEntryYear(), getSerialNumber());
+
 
         // Χρησιμοποιήστε String.format() για το zero-padding του serial number
-        return null; // Προσωρινά
+        return result;
     }
 
     // === Εκτύπωση στοιχείων φοιτητή ===
     public void printDetails() {
-        // TODO: Εκτυπώστε το ονοματεπώνυμο και τον αριθμό μητρώου του φοιτητή
-        // Χρησιμοποιήστε System.out.println(...)
+        //  Εκτυπώστε το ονοματεπώνυμο και τον αριθμό μητρώου του φοιτητή
+        System.out.println("Student: " + getFullName() + " has AM "+getStudentId());
     }
 
     // === Getters ===
