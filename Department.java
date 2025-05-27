@@ -25,25 +25,31 @@ public class Department {
         this.name = name;
         this.code = code;
 
-        // TODO: Αρχικοποιήστε τη λίστα students ως κενή ArrayList
+        // Αρχικοποιήστε τη λίστα students ως κενή ArrayList
+        this.students = new ArrayList<>();
     }
 
     // === Προσθήκη Φοιτητή ===
     public void addStudent(Student s) {
-        // TODO: Προσθέστε τον φοιτητή στη λίστα students
+        // Προσθέστε τον φοιτητή στη λίστα students
+        students.add(s);
     }
 
     // === Πλήθος Φοιτητών ===
     public int getStudentCount() {
-        // TODO: Επιστρέψτε το μέγεθος της λίστας students
-        return 0;
+        //  Επιστρέψτε το μέγεθος της λίστας students
+        return students.size();
     }
 
     // === Εκτύπωση πληροφοριών Τμήματος ===
     public void printDetails() {
-        // TODO: Εκτυπώστε το όνομα και τον κωδικό του Τμήματος
+        //  Εκτυπώστε το όνομα και τον κωδικό του Τμήματος
         // Εκτυπώστε και τον αριθμό των φοιτητών
         // Καλέστε printDetails() για κάθε φοιτητή της λίστας
+        System.out.println("Department of " + name+ " has " + students.size() + " students.");
+        for (Student s : students) {
+            s.printDetails();
+        }
     }
 
     // === Getters ===
